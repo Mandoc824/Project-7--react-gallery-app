@@ -22,7 +22,7 @@ const PhotoContainer = (props) => {
 
   return (
     <div className="photo-container">
-      {results.length !== 0 ? (
+      {results.length > 0 ? (
         <>
           <h2>Results For: {search}</h2>
           <ul>
