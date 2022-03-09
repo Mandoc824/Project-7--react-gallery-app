@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
-function App() {
+//components
+import SearchForm from "./components/SearchForm";
+import Nav from "./components/Nav";
+import PhotoContainer from "./components/PhotoContainer";
+
+//api key
+import apiKey from "./config";
+const key = apiKey;
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <SearchForm />
+        <Nav />
+        <Routes>
+          <Route
+            exact
+            path="/:search"
+            element={<PhotoContainer apiKey={key} />}
+          />
+          <Route path="/" element={<Navigate replace to="/search" />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
