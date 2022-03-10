@@ -22,7 +22,7 @@ const App = () => {
             path="/:search"
             element={<PhotoContainer apiKey={key} />}
           />
-          <Route path="/" element={<Navigate replace to="/cats" />} />
+          <Route path="/" element={<Navigate replace to="/search" />} />
         </Routes>
       </div>
     </BrowserRouter>
